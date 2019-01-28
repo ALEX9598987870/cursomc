@@ -18,4 +18,9 @@ public class CategoriaService {
 		Optional<Categoria> obj = repo.findById(id);
 		return obj.orElse(null);
 	}
+	
+	public void excluir(Integer id) {
+		repo.deleteById(id);
+	}
+	
 }
