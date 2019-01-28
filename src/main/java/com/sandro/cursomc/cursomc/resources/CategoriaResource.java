@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,4 +33,17 @@ public class CategoriaResource {
 	private void exclui(@PathVariable Integer id) {
 		service.excluir(id);
 	}
+	
+	@GetMapping()
+	private List<Categoria> listar() {
+		return service.listar();
+	}
+	
+	@PostMapping("/salvar")
+	private void salvar(@RequestBody Categoria categoria) {
+		service.salvar(categoria);
+	}
+	
+	
+	
 }

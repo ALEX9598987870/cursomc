@@ -1,5 +1,6 @@
 package com.sandro.cursomc.cursomc.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,15 @@ public class CategoriaService {
 	
 	public void excluir(Integer id) {
 		repo.deleteById(id);
+	}
+
+	public List<Categoria> listar() {
+		return repo.findAll();
+	}
+
+	public void salvar(Categoria categoria) {
+		repo.save(categoria);
+		
 	}
 	
 }
